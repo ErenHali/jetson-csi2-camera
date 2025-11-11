@@ -1,0 +1,99 @@
+deico@deico-jetson:~$ ldd /usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvvidconv.so
+	linux-vdso.so.1 (0x0000ffff9118f000)
+	libgstbase-1.0.so.0 => /lib/aarch64-linux-gnu/libgstbase-1.0.so.0 (0x0000ffff90ffc000)
+	libgstreamer-1.0.so.0 => /lib/aarch64-linux-gnu/libgstreamer-1.0.so.0 (0x0000ffff90ea0000)
+	libglib-2.0.so.0 => /lib/aarch64-linux-gnu/libglib-2.0.so.0 (0x0000ffff90d65000)
+	libgobject-2.0.so.0 => /lib/aarch64-linux-gnu/libgobject-2.0.so.0 (0x0000ffff90cf3000)
+	libgstvideo-1.0.so.0 => /lib/aarch64-linux-gnu/libgstvideo-1.0.so.0 (0x0000ffff90c3e000)
+	libnvbufsurface.so.1.0.0 => /usr/lib/aarch64-linux-gnu/tegra/libnvbufsurface.so.1.0.0 (0x0000ffff90b83000)
+	libnvbufsurftransform.so.1.0.0 => /usr/lib/aarch64-linux-gnu/tegra/libnvbufsurftransform.so.1.0.0 (0x0000ffff8f9e8000)
+	libdl.so.2 => /lib/aarch64-linux-gnu/libdl.so.2 (0x0000ffff8f9d4000)
+	libpthread.so.0 => /lib/aarch64-linux-gnu/libpthread.so.0 (0x0000ffff8f9a3000)
+	librt.so.1 => /lib/aarch64-linux-gnu/librt.so.1 (0x0000ffff8f98b000)
+	libc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffff8f818000)
+	/lib/ld-linux-aarch64.so.1 (0x0000ffff9115f000)
+	libgmodule-2.0.so.0 => /lib/aarch64-linux-gnu/libgmodule-2.0.so.0 (0x0000ffff8f804000)
+	libm.so.6 => /lib/aarch64-linux-gnu/libm.so.6 (0x0000ffff8f759000)
+	libpcre.so.3 => /lib/aarch64-linux-gnu/libpcre.so.3 (0x0000ffff8f6e7000)
+	libffi.so.7 => /lib/aarch64-linux-gnu/libffi.so.7 (0x0000ffff8f6ce000)
+	liborc-0.4.so.0 => /lib/aarch64-linux-gnu/liborc-0.4.so.0 (0x0000ffff8f63f000)
+	libnvrm_mem.so => /usr/lib/aarch64-linux-gnu/tegra/libnvrm_mem.so (0x0000ffff8f627000)
+	libnvrm_surface.so => /usr/lib/aarch64-linux-gnu/tegra/libnvrm_surface.so (0x0000ffff8f5f1000)
+	libnvrm_chip.so => /usr/lib/aarch64-linux-gnu/tegra/libnvrm_chip.so (0x0000ffff8f5dd000)
+	libEGL.so.1 => /lib/aarch64-linux-gnu/libEGL.so.1 (0x0000ffff8f5b9000)
+	libnvos.so => /usr/lib/aarch64-linux-gnu/tegra/libnvos.so (0x0000ffff8f599000)
+	libnvbuf_fdmap.so.1.0.0 => /usr/lib/aarch64-linux-gnu/tegra/libnvbuf_fdmap.so.1.0.0 (0x0000ffff8f586000)
+	libnvrm_host1x.so => /usr/lib/aarch64-linux-gnu/tegra/libnvrm_host1x.so (0x0000ffff8f565000)
+	libnvvic.so => /usr/lib/aarch64-linux-gnu/tegra/libnvvic.so (0x0000ffff8f53c000)
+	libcuda.so.1 => /usr/lib/aarch64-linux-gnu/tegra/libcuda.so.1 (0x0000ffff8dee5000)
+	libstdc++.so.6 => /lib/aarch64-linux-gnu/libstdc++.so.6 (0x0000ffff8dd00000)
+	libnvsciipc.so => /usr/lib/aarch64-linux-gnu/tegra/libnvsciipc.so (0x0000ffff8dcdb000)
+	libnvsocsys.so => /usr/lib/aarch64-linux-gnu/tegra/libnvsocsys.so (0x0000ffff8dcc7000)
+	libnvrm_sync.so => /usr/lib/aarch64-linux-gnu/tegra/libnvrm_sync.so (0x0000ffff8dcb0000)
+	libGLdispatch.so.0 => /lib/aarch64-linux-gnu/libGLdispatch.so.0 (0x0000ffff8db25000)
+	libnvrm_stream.so => /usr/lib/aarch64-linux-gnu/tegra/libnvrm_stream.so (0x0000ffff8db0c000)
+	libnvcolorutil.so => /usr/lib/aarch64-linux-gnu/tegra/libnvcolorutil.so (0x0000ffff8dae5000)
+	libnvrm_gpu.so => /usr/lib/aarch64-linux-gnu/tegra/libnvrm_gpu.so (0x0000ffff8da76000)
+	libgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffff8da52000)
+deico@deico-jetson:~$ rm -f ~/.cache/gstreamer-1.0/registry.aarch64.bin
+deico@deico-jetson:~$ GST_DEBUG=3 gst-inspect-1.0 nvvidconv
+0:00:00.641169573  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:32.720: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnveglglessink.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:00.749305285  3732 0xaaaad37a9f20 WARN                 default gstsf.c:97:gst_sf_create_audio_template_caps: format 0x120000: 'AVR (Audio Visual Research)' is not mapped
+0:00:00.749420776  3732 0xaaaad37a9f20 WARN                 default gstsf.c:97:gst_sf_create_audio_template_caps: format 0x180000: 'CAF (Apple Core Audio File)' is not mapped
+0:00:00.749509355  3732 0xaaaad37a9f20 WARN                 default gstsf.c:97:gst_sf_create_audio_template_caps: format 0x100000: 'HTK (HMM Tool Kit)' is not mapped
+0:00:00.749629518  3732 0xaaaad37a9f20 WARN                 default gstsf.c:97:gst_sf_create_audio_template_caps: format 0xc0000: 'MAT4 (GNU Octave 2.0 / Matlab 4.2)' is not mapped
+0:00:00.749712240  3732 0xaaaad37a9f20 WARN                 default gstsf.c:97:gst_sf_create_audio_template_caps: format 0xd0000: 'MAT5 (GNU Octave 2.1 / Matlab 5.0)' is not mapped
+0:00:00.749793554  3732 0xaaaad37a9f20 WARN                 default gstsf.c:97:gst_sf_create_audio_template_caps: format 0x210000: 'MPC (Akai MPC 2k)' is not mapped
+0:00:00.749880244  3732 0xaaaad37a9f20 WARN                 default gstsf.c:97:gst_sf_create_audio_template_caps: format 0xe0000: 'PVF (Portable Voice Format)' is not mapped
+0:00:00.749965814  3732 0xaaaad37a9f20 WARN                 default gstsf.c:97:gst_sf_create_audio_template_caps: format 0x160000: 'SD2 (Sound Designer II)' is not mapped
+0:00:00.750058456  3732 0xaaaad37a9f20 WARN                 default gstsf.c:97:gst_sf_create_audio_template_caps: format 0x190000: 'WVE (Psion Series 3)' is not mapped
+0:00:00.820851192  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:32.900: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvvideo4linux2.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:00.928288551  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:33.008: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvivafilter.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:00.961931531  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:33.041: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstopengl.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:00.988589793  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:33.068: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvv4l2camerasrc.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:01.003641654  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:33.083: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvegltransform.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:01.103818126  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:33.183: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libcluttergst3.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:01.182218664  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:33.261: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvarguscamerasrc.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:01.467979840  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:33.547: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnveglstreamsrc.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:01.505373856  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:33.585: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvvideosinks.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:02.795284257  3732 0xaaaad37a9f20 WARN                  ladspa gstladspa.c:507:plugin_init:<plugin216> no LADSPA plugins found, check LADSPA_PATH
+0:00:02.860898140  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:34.940: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstgtk.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:02.951449600  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:35.031: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvjpeg.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:02.964153243  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:35.043: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvcompositor.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:03.002124647  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:35.081: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvvideosink.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+0:00:03.015026791  3732 0xaaaad37a9f20 WARN      GST_PLUGIN_LOADING gstplugin.c:792:_priv_gst_plugin_load_file_for_registry: module_open failed: /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+
+(gst-plugin-scanner:3732): GStreamer-WARNING **: 15:19:35.094: Failed to load plugin '/usr/lib/aarch64-linux-gnu/gstreamer-1.0/libgstnvvidconv.so': /lib/aarch64-linux-gnu/libGLdispatch.so.0: cannot allocate memory in static TLS block
+No such element or plugin 'nvvidconv'
+deico@deico-jetson:~$ echo $GST_PLUGIN_PATH
+
+deico@deico-jetson:~$ echo $GST_PLUGIN_PATH
+

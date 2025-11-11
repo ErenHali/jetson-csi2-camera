@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.dtsi": "c",
+        "*.dts": "c",
+        "module.h": "c"
+    }
+}

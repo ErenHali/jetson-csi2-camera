@@ -1,0 +1,12 @@
+config VIDEO_AR0234
+	tristate "ON Semiconductor AR0234 sensor support"
+	depends on I2C && VIDEO_V4L2
+	select V4L2_FWNODE
+	select MEDIA_CONTROLLER
+	select VIDEO_V4L2_SUBDEV_API
+	help
+	  This is a Video4Linux2 sensor driver for the ON Semiconductor
+	  AR0234 camera.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called ar0234.
