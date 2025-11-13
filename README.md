@@ -385,17 +385,19 @@ Hata tegracam depencies'leri bizim V4L2 yapısındaki ser-des driver'lari ile uy
 This parameter only changes in the same chip but for different PHY  
 if it was max9296a first channels output would be vc-id=0  
 if it was the second phy's output it woudl be vc-id=1  
-
 for single phy everything is vc_id=0  
 
 #### tegra_sinterface
-tegra_sinterface corresponds rto CSI-A, CSI-B and so on.  
-the port index should be changed with the port of the CSI's  
-check the port-binding.png  
+tegra_sinterface corresponds rto CSI-A, CSI-B and so on. For example:  
+If your camera is connected to the CSI-E with 4 lanes, you would change this parameter to seria
+l_e.  
+_Check the port-binding.png_
+
+#### port-index
+port-index correspond to the port number of the nvcsi.  
+For the  video input (vi) this correspond to the Stream Number. In addition the channel@ and port@ numbers are just for naming conventions they do not directly represent the port-index of nvcsi or stream-index of vi, for example:
+
+If you are connected to the CSI-F then your port-index for nvcsi should be "6" and your port-index for vi should be "5". You can use any channel or port node for nvcsi and vi. But if you are connecting multiple cameras then intuitively it is better to select these channels which would correspond to your camera index. Check the _port-binding.png_
 
 #### Quad DTS File
-Eğer 4 kanalı'da status=okay diyerek aktif etmene rağmen sadece birine video akışı olursa garip bir şekilde video çalışmıyor. Sadece video akışı olan kanalı aktif edersem sorun çözülüyor:
-Sonuç: quad.dtb'yi sanırım sadece 4 kamera bağlayarak doğrulayabilirim.
-
-4'üncü kanalda bir sıkıntı var bazen deserializer probe olmuyor, görüntü aktarırken linux kitleniyor.
-
+When the port-indexes for the 4th channel (CSI-G) is fixed, this .dts file started working for all channels. When DISPLAY parameter is not set, you would stop getting video stream correctly. If this happens reboot the Jetson then first set the enviroment variable for DISPLAY.

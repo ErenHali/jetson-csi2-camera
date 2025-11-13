@@ -79,8 +79,8 @@ Below elements are Nvidia proprietary. For common elements check the below link:
 
 ### Formatting elements
 
-- **nvvidconv :**Video format conversion and scaling
-- **nvegltransform :**Video transform element for NVMM to EGLimage (supported with nveglglessink only)
+- **nvvidconv :** Video format conversion and scaling
+- **nvegltransform :** Video transform element for NVMM to EGLimage (supported with nveglglessink only)
 
 ### Video sink elements
 
@@ -134,9 +134,9 @@ gstreamer1.0-libav
 ```
 ```
 sudo apt-get install libgstreamer1.0-dev \
-     libgstreamer-plugins-base1.0-dev \
-     libgstreamer-plugins-good1.0-dev \
-     libgstreamer-plugins-bad1.0-dev
+libgstreamer-plugins-base1.0-dev \
+libgstreamer-plugins-good1.0-dev \
+libgstreamer-plugins-bad1.0-dev
 ```
 
 To see the blacklisted elements:
