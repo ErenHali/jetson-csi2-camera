@@ -1,6 +1,6 @@
 # Jetson Developing Guide
 
-**Host PC Requirement:**            Linux (Ubuntu 18.04 or Ubuntu 20.04)  
+**Host PC Requirement:**            Linux (Ubuntu 20.04)  
 **Jetson Device:**                  Jetson AGX Xavier Industrial  
 **Jetson Linux Version:**           35.6.2  
 **Jetpack Version:**                5.1.5    

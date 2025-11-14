@@ -15,6 +15,7 @@ endif
 
 dtb-$(BUILD_19x_ENABLE) += tegra194-p2888-0008-e3366-1199.dtb
 dtb-$(BUILD_19x_ENABLE) += tegra194-p2888-0008-p2822-0000.dtb
+dtb-$(BUILD_19x_ENABLE) += tegra194-p2888-0008-p2822-0000-deico-tevs-single.dtb
 dtb-$(BUILD_19x_ENABLE) += tegra194-p2888-0008-p2822-0000-deico-tevs-quad.dtb
 dtb-$(BUILD_19x_ENABLE) += tegra194-p2888-0008-p2822-0000-maxn.dtb
 dtb-$(BUILD_19x_ENABLE) += tegra194-p2888-0008-p2822-0000-noecc.dtb

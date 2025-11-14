@@ -9,7 +9,7 @@
 #define GMSL_CAM_NUM 		1	       // equals to number of cameras can be connected to your board
 #define TOTAL_CSI_LANES 	(GMSL_CAM_NUM * CAM_LANES)
 #define DES_LINK_FREQ 		1000000000 // min: 100000000, max: 1250000000, currently: 1GHz
-#define CSI_FREQ 			1000       // min: 100, max: 1200
+#define CSI_FREQ 			800       // min: 100, max: 1200
 
 / {
 	/*
@@ -86,7 +86,7 @@
 };
 
 &tcp { // /tegra-camera-platform
-	num_csi_lanes = <TOTAL_CSI_LANES>;			// total number of CSI lanes used by all cameras
+	num_csi_lanes = <4>;			// total number of CSI lanes used by all cameras
 	max_lane_speed = <2500000>;
 	min_bits_per_pixel = <16>;
 	vi_peak_byte_per_pixel = <2>;
@@ -139,8 +139,8 @@
 		// fsync-mode = "external";
 
 		des_1_pinmux_default: pinmux {
-			mfp6_fsync {
-				pins = "mfp6";
+			mfp0_fsync {
+				pins = "mfp0";
 				function = "gpio";
 				maxim,gmsl-tx = <1>;
 				maxim,gmsl-tx-id = <0>;

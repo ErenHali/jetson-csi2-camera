@@ -1,7 +1,7 @@
 // File: tegra194-p2888-0008-p2822-0000-deico-tevs-quad.dts
 // First two deserializer channels work at Pixel Mode
 // Rest of the channels work at Tunnel Mode
-// DTS file hooking up a four cameras to all of the channels
+// DTS file hooking up a single camera to any channels
 
 /dts-v1/;
 
@@ -10,7 +10,7 @@
 #define CAM_LANES 			4          // number of CSI lanes used by each camera
 #define CAM_LANES_STRING 	"4"
 #define GMSL_CAM_NUM 		4	       // equals to number of cameras can be connected to your board
-#define TOTAL_CSI_LANES 	(GMSL_CAM_NUM * CAM_LANES)
+//#define TOTAL_CSI_LANES 	(GMSL_CAM_NUM * CAM_LANES)
 #define DES_LINK_FREQ 		1000000000 // min: 100000000, max: 1250000000, currently: 1GHz
 #define CSI_FREQ 			800       // min: 100, max: 1200
 
@@ -206,7 +206,7 @@
 };
 
 &tcp { // /tegra-camera-platform
-	num_csi_lanes = <TOTAL_CSI_LANES>;			// total number of CSI lanes used by all cameras (4x1)
+	num_csi_lanes = <4>;			// total number of CSI lanes used by all cameras (4x1)
 	max_lane_speed = <2500000>;
 	min_bits_per_pixel = <16>;
 	vi_peak_byte_per_pixel = <2>;
