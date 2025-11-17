@@ -7,8 +7,9 @@
 #define CAM_LANES 			4          // number of CSI lanes used by each camera
 #define CAM_LANES_STRING 	"4"
 #define GMSL_CAM_NUM 		1	       // equals to number of cameras can be connected to your board
+#define TOTAL_CSI_LANES 	(GMSL_CAM_NUM * CAM_LANES)
 #define DES_LINK_FREQ 		1000000000 // min: 100000000, max: 1250000000, currently: 1GHz
-#define CSI_FREQ 			800       // min: 100, max: 1200
+#define CSI_FREQ 			500        // min: 100, max: 1200
 
 / {
 	/*
@@ -85,14 +86,14 @@
 };
 
 &tcp { // /tegra-camera-platform
-	num_csi_lanes = <4>;			// total number of CSI lanes used by all cameras
-	max_lane_speed = <2500000>;
-	min_bits_per_pixel = <16>;
+	num_csi_lanes = <TOTAL_CSI_LANES>;	// total number of CSI lanes used by all cameras (4x1)
+	max_lane_speed = <4000000>;
+	min_bits_per_pixel = <16>;			// only this is updated
 	vi_peak_byte_per_pixel = <2>;
-	vi_bw_margin_pct = <67>;
-	// max_pixel_rate = <240000>;
-	// isp_peak_byte_per_pixel = <5>;
-	// isp_bw_margin_pct = <25>;
+	vi_bw_margin_pct = <25>;
+	//max_pixel_rate = <240000>;
+	//isp_peak_byte_per_pixel = <5>;
+	//isp_bw_margin_pct = <25>;
 
 	modules {
 

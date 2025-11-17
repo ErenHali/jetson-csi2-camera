@@ -3,6 +3,7 @@
         "*.dtsi": "c",
         "*.dts": "c",
         "module.h": "c",
-        "map": "c"
+        "map": "c",
+        "netfwd": "c"
     }
 }
