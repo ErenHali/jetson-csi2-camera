@@ -402,16 +402,21 @@ If you are connected to the CSI-F then your port-index for nvcsi should be "6" a
 #### Quad DTS File
 When the port-indexes for the 4th channel (CSI-G) is fixed, this .dts file started working for all channels. When DISPLAY parameter is not set, you would stop getting video stream correctly. If this happens reboot the Jetson then first set the enviroment variable for DISPLAY.
 
-CSI_FREQ ARTTIRMAK GÖRÜNTÜYÜ DAHA DAR YAPTI
+#### CSI_FREQ
+Bunu arttırmak görüntüyü daha dar yaptı.
 
-Etkenler:
-	tegra_camera_platform
-		num_csi_lanes
-		max_lane_speed -> denenmedi
-
-	Defined:
-		DES_LINK_FREQ
-		CSI_FREQ
-		3Gbps/6Gbps beeence etkiliyor
-		CAM_LANES
-			CAM_LANES_STRING
+Görüntünün bozuk olmasına sebep olan tüm parametreler:
+```
+tegra_camera_platform {
+	num_csi_lanes = <TOTAL_CSI_LANES>
+	max_lane_speed = <4000000> //tam emin olamadım
+}
+```
+```
+#define:
+	DES_LINK_FREQ = 1000000000
+	CSI_FREQ = 500
+	CAM_LANES = 4
+	CAM_LANES_STRING = "4"
+	//3Gbps/6Gbps chip hızının da etkilediğini düşünüyorum
+```
