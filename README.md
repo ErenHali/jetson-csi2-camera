@@ -1,4 +1,4 @@
-# Jetson Developing Guide
+# Jetson GMSL2 Camera Bring-up Guide
 
 **Host PC Requirement:**            Linux (Ubuntu 20.04)  
 **Jetson Device:**                  Jetson AGX Xavier Industrial  
