@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.dtsi": "c",
+        "*.dts": "c",
+        "module.h": "c",
+        "map": "c",
+        "netfwd": "c"
+    }
+}
